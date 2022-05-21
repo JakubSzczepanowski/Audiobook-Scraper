@@ -3,14 +3,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 
-PATH = 'C:\\Users\\Dell\\Documents\\chromedriver.exe'
-
 class ChromeBot:
     
-    def __init__(self):
+    def __init__(self, driver_path: str):
         option = webdriver.ChromeOptions()
         option.add_argument('headless')
-        self.driver = webdriver.Chrome(PATH, options=option)
+        self.driver = webdriver.Chrome(driver_path, options=option)
 
     def get_video_src(self, url: str) -> str:
         self.driver.get(url)

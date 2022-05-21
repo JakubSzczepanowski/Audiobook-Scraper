@@ -1,0 +1,8 @@
+{
+    "chrome_driver_path": "C:\\Users\\Dell\\Documents\\chromedriver.exe",
+    "ffmpeg_path": "C:\\Users\\Dell\\Desktop\\Coś więcej\\ffmpeg.exe",
+    "video_links": [
+        "https://www.cda.pl/video/33647500f"
+    ],
+    "output_filename": "Wiedźmin Czas pogardy"
+}
