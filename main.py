@@ -4,16 +4,22 @@ import utils.save as save
 import os
 import pathlib
 import utils.command_builder as command_builder
+import cli
 
 MAIN_PATH = pathlib.Path().resolve()
 
 def main():
-    config = load_requirements(os.path.join(MAIN_PATH, 'requirements.json'))
+    try:
+        config = load_requirements(os.path.join(MAIN_PATH, 'requirements.json'))
+    except TypeError as e:
+        print(e)
+        return
+    args = cli.get_args()
     bot = ChromeBot(config.chrome_driver_path)
     filename_prefix = config.output_filename
     for index, link in enumerate(config.video_links):
         src = bot.get_video_src(link)
-        save.save_file(src, f'{filename_prefix} Rozdział {index+1}.mp4')
+        save.save_file(src, f'{filename_prefix} Rozdział {index+1+args.offset}.mp4')
     mypath = os.path.curdir
     downloaded = [f for f in os.listdir(mypath) if os.path.isfile(os.path.join(mypath, f)) and f.startswith(config.output_filename)]
     for video in downloaded:
@@ -24,4 +30,8 @@ def main():
     
 
 if __name__ == '__main__':
-    main()
+    try:
+        assert os.path.isfile('requirements.json')
+        main()
+    except AssertionError:
+        print('requirements.json is not exists!')
