@@ -16,7 +16,7 @@ class ChromeBot:
         return WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "video"))).get_attribute("src")
     
     def close(self):
-        self.driver.quit()
+        self.driver.close()
 
 
 

@@ -2,7 +2,8 @@
     "chrome_driver_path": "C:\\Users\\Dell\\Documents\\chromedriver.exe",
     "ffmpeg_path": "C:\\Users\\Dell\\Desktop\\Coś więcej\\ffmpeg.exe",
     "video_links": [
-        "https://www.cda.pl/video/33647500f"
+        "https://www.cda.pl/video/377724103",
+        "https://www.cda.pl/video/377726592"
     ],
-    "output_filename": "Wiedźmin Czas pogardy"
+    "output_filename": "Wiedźmin Wieża jaskółki"
 }
